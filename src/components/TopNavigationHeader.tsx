@@ -26,14 +26,14 @@ const themedStyles = StyleService.create({
 
 const BackIcon = (props: IconProps) => <Icon {...props} name="arrow-back" />;
  
-const CartIcon = (props: IconProps) => {
+const UpdateIcon = (props: IconProps) => {
 
     const styles = useStyleSheet(themedStyles); 
     const cart = useAppSelector(state => state.shoppingCartReducer.shoppingCart); 
 
     return(
         <View>
-            <Icon {...props} name="shopping-cart" />
+            <Icon {...props} name="loader-outline" />
             {/* Só mostra o indicador caso tenha items no carrinho */}
             {cart.length > 0 && <View style = {styles.cartAlert}></View>}
         </View>
@@ -44,8 +44,8 @@ const BackAction = () => (
     <TopNavigationAction icon={BackIcon} onPress={() => NavigationService.goBack()}/> 
 );
 
-const CartAction = () => (
-    <TopNavigationAction icon={CartIcon} onPress={() => NavigationService.navigate(RouteNames.ShoppingCart)} /> 
+const UpdateAction = () => (
+    <TopNavigationAction icon={UpdateIcon} onPress={() => NavigationService.navigate(RouteNames.ShoppingCart)} /> 
 );
 
 const TopNavigationHeader = (props: TopNavigationHeaderProps) => { 
@@ -54,7 +54,7 @@ const TopNavigationHeader = (props: TopNavigationHeaderProps) => {
         title={props.title}
         alignment="center"
         accessoryLeft={props.backButton ? BackAction : undefined} 
-        accessoryRight={CartAction} 
+        accessoryRight={UpdateAction} 
       /> 
     ) 
 }

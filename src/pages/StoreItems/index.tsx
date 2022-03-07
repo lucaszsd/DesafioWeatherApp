@@ -1,5 +1,5 @@
 //Exportações Externas
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Button, 
   Layout,
@@ -20,6 +20,9 @@ import { Breed, Product } from 'types/interfaces';
 import NavigationService from 'routes/NavigationService';
 import { useFetchBreedsQuery } from 'features/dogs/dogs_api_slice';
 import * as ShoppingCartActions from 'features/shoppingCart/shoppingCartSlice';
+import * as WeatherActions from 'features/Weather/weatherSlice';
+import getWeatherData from 'api/getForeCastData';
+import { setcityData, setWeatherData } from 'features/Weather/weatherSlice';
 
 const themedStyles = StyleService.create({
   btn: { margin: 16 }, 
@@ -61,20 +64,37 @@ const themedStyles = StyleService.create({
 const StoreItems = () => {
   
   const dispatch = useDispatch()
-  
+
+  const [loading, setLoading] = useState(true)
+ 
+  useEffect(() => {
+    getWeatherData().then(response =>{ 
+      dispatch(WeatherActions.setWeatherData(response.data.list))
+      dispatch(WeatherActions.setcityData(response.data.city));
+      setLoading(false)
+    }).catch(error => {
+      console.log('Erro busca de weather ', error) 
+      setLoading(false)
+    })
+  }, [])
+ 
   const styles = useStyleSheet(themedStyles);
   const { data = [], isFetching } = useFetchBreedsQuery(20);
   
   const cart = useAppSelector(state => state.shoppingCartReducer.shoppingCart); 
 
-  dispatch(ShoppingCartActions.setProductList(data))
+  const weatherData = useAppSelector(state => state.weatherReducer.weatherData);
+  const cityData = useAppSelector(state => state.weatherReducer.cityData);
+ 
 
-  const shoppingCartData = (id: string) => {  
-    let shoppingCartItemData:Product = cart.filter(item => item.id == id)[0]
-    return shoppingCartItemData;
-  }
+  // dispatch(ShoppingCartActions.setProductList(data))
 
-  if (isFetching) {
+  // const shoppingCartData = (id: string) => {  
+  //   let shoppingCartItemData:Product = cart.filter(item => item.id == id)[0]
+  //   return shoppingCartItemData;
+  // }
+
+  if (loading) {
     return (
       <Layout style={[styles.maxFlex, styles.centerContent]}>
         <Spinner/>
@@ -82,40 +102,42 @@ const StoreItems = () => {
     );
   }
    
-  const renderItem = ({ item }: ListRenderItemInfo<Breed>) => {
+  
 
-    const shoppingCartItem = shoppingCartData(item.id)
+  // const renderItem = ({ item }: ListRenderItemInfo<Breed>) => {
+
+  //   // const shoppingCartItem = shoppingCartData(item.id)
       
-    return(
-      <TouchableNativeFeedback onPress={() => NavigationService.navigate(RouteNames.ItemDetail, item)}>
-        <View style={styles.item}>
-          <View style={styles.temperamentWrapper}>
-            <Avatar size="giant" shape='rounded' style = {{width: 128, height: 128}} source={{ uri: item.image.url }} />
-            <Text category="h6" style={styles.temperament}>
-              {item.name}
-            </Text>
-          </View>
-          <View style = {{width:'100%'}}>
-            {shoppingCartItem ? 
-              <Button status = {'danger'} style = {styles.btn} onPress={() => dispatch(ShoppingCartActions.removeProductFromCart(item.id))}>Remover</Button>:
-              <Button status = {'success'} style = {styles.btn} onPress={() => dispatch(ShoppingCartActions.addProductToCart(item.id))}>Adicionar</Button> 
-            }
-          </View>
-        </View>
-      </TouchableNativeFeedback>
-    );
-  }
+  //   return(
+  //     <TouchableNativeFeedback onPress={() => NavigationService.navigate(RouteNames.ItemDetail, item)}>
+  //       <View style={styles.item}>
+  //         <View style={styles.temperamentWrapper}>
+  //           <Avatar size="giant" shape='rounded' style = {{width: 128, height: 128}} source={{ uri: item.image.url }} />
+  //           <Text category="h6" style={styles.temperament}>
+  //             {item.name}
+  //           </Text>
+  //         </View>
+  //         <View style = {{width:'100%'}}>
+  //           {shoppingCartItem ? 
+  //             <Button status = {'danger'} style = {styles.btn} onPress={() => dispatch(ShoppingCartActions.removeProductFromCart(item.id))}>Remover</Button>:
+  //             <Button status = {'success'} style = {styles.btn} onPress={() => dispatch(ShoppingCartActions.addProductToCart(item.id))}>Adicionar</Button> 
+  //           }
+  //         </View>
+  //       </View>
+  //     </TouchableNativeFeedback>
+  //   );
+  // }
 
   return (
     <Layout style={styles.maxFlex}>  
-      <TopNavigationHeader title = {'Produtos'}/> 
-      <FlatList
+      <TopNavigationHeader title = {'London'}/> 
+      {/* <FlatList
         style={styles.maxFlex}
         numColumns={2}
         contentContainerStyle={styles.contentContainer}
         data={data}
         renderItem={renderItem}
-      /> 
+      />  */}
     </Layout>
   );
 };

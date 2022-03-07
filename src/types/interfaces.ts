@@ -28,3 +28,8 @@ export interface ShoppingCartReducerState {
   products: Breed[];
   shoppingCart: Product[];
 }
+
+export interface WeatherReducerState {
+  weatherData: object,
+  cityData: object,
+}
