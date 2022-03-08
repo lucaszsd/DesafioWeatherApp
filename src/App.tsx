@@ -26,35 +26,20 @@ import store from 'store';
 import NavigationStack from 'routes/NavigationStack';
 
 Ionicons.loadFont();
-
-const BaseApp = (props: ThemedComponentProps) => (
-  <>
-    <SafeAreaView style={props.eva!.style!.safeAreaBg}>
-      <StatusBar
-        barStyle="dark-content"
-        backgroundColor={theme['color-primary-500']}
-        networkActivityIndicatorVisible
-        showHideTransition="fade"
-      /> 
-      <NavigationStack />
-    </SafeAreaView>
-  </>
-);
-
-const ThemedBaseApp = withStyles(BaseApp, (evaTheme: ThemeType) => ({
-  safeAreaBg: {
-    backgroundColor: evaTheme['background-basic-color-2'],
-    flex: 1,
-  },
-}));
-
+ 
 const App = () => {
   return (
     <Provider store={store}>
       <>
         <IconRegistry icons={EvaIconsPack} />
-        <ApplicationProvider {...eva} theme={{ ...eva.dark, ...theme }}>
-          <ThemedBaseApp />
+        <ApplicationProvider {...eva} theme={{...eva.light, ...theme }}> 
+          <StatusBar
+            barStyle="dark-content"
+            backgroundColor={theme['color-primary-500']}
+            networkActivityIndicatorVisible
+            showHideTransition="fade"
+          /> 
+          <NavigationStack />
         </ApplicationProvider>
       </>
     </Provider>

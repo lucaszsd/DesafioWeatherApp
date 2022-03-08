@@ -7,7 +7,8 @@ import {
     IconProps,
     TopNavigationAction,
     OverflowMenu,
-    MenuItem, 
+    MenuItem,
+    Text, 
   } from '@ui-kitten/components';
   import { View } from 'react-native';
   import React, { ReactText } from 'react';
@@ -25,7 +26,7 @@ const themedStyles = StyleService.create({
     cartAlert: { height: 8, width: 8, borderRadius: 8, backgroundColor: 'red', position: 'absolute', top: 2, right: 0 }, 
 });
 
-const BackIcon = (props: IconProps) => <Icon {...props} name="plus-outline" />;
+const BackIcon = (props: IconProps) => <Icon {...props} status = {'control'} name="plus-outline" />;
 
 
 const cidades = [
@@ -46,7 +47,7 @@ const UpdateIcon = (props: IconProps) => {
     const control = useAppSelector(state => state.controlReducer)
     return(
         <View>
-            <Icon {...props} name="refresh-outline" />
+            <Icon {...props} name="refresh-outline"  />
             {/* Só mostra o indicador caso tenha items no carrinho */}
             {cart.length > 0 && <View style = {styles.cartAlert}></View>}
         </View>
