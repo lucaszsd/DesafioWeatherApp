@@ -13,7 +13,7 @@ const Previsao = () => {
   const weatherData:WeatherDataInterface = useAppSelector(state => state.weatherReducer.weatherData);
   
   return (  
-      <View style = {{flexDirection: 'row', justifyContent: 'space-between', width: '100%', marginTop: 16, paddingHorizontal: 16, backgroundColor: 'rgba(255, 255, 255, 0.0)', alignItems: 'center', borderRadius: 16}}> 
+      <View style = {themedStyles.previsaoContainer}> 
         <Text category={'h6'}>Hoje</Text>
         <Text category={'h6'}>{`${formatarTemp(weatherData.main.temp_min)}/${formatarTemp(weatherData.main.temp_max)}`}</Text>
       </View> 
@@ -23,37 +23,13 @@ const Previsao = () => {
 export default Previsao;
  
 const themedStyles = StyleService.create({
-    btn: { margin: 16 }, 
-    maxFlex: {
-      flex: 1, 
+    previsaoContainer: {
+      flexDirection: 'row', 
+      justifyContent: 'space-between',
+      width: '100%', 
+      marginTop: 16, 
+      paddingHorizontal: 16, 
+      backgroundColor: 'rgba(255, 255, 255, 0.0)', 
+      alignItems: 'center', borderRadius: 16
     }, 
-    centerContent: {
-      alignItems: 'center',
-      justifyContent: 'center',
-    }, 
-    card: {
-      margin: 16,
-    }, 
-    contentContainer: {
-      paddingHorizontal: 8,
-      paddingVertical: 16,
-    }, 
-    item: {
-      paddingVertical: 16,
-      width: '50%',
-      justifyContent: 'center',
-      alignItems: 'center'
-    }, 
-    temperamentWrapper: {
-      display: 'flex', 
-      alignItems: 'center',
-      justifyContent: 'center', 
-      flexWrap: 'wrap',
-    }, 
-    temperament: { 
-      marginTop: 16,
-      marginHorizontal: 8,
-      fontWeight: 'bold', 
-      textAlign: 'center',
-    },
   });
