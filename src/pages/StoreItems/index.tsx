@@ -70,76 +70,44 @@ const themedStyles = StyleService.create({
 const StoreItems = () => {
   
   const dispatch = useDispatch()
-
-  const [loading, setLoading] = useState(true)
+ 
   const control = useAppSelector(state => state.controlReducer)
 
   useEffect(() => {
     getWeatherData(control.cidade).then(response =>{ 
-      dispatch(WeatherActions.setWeatherData(response.data))
-      // dispatch(WeatherActions.setcityData(response.data.city));
-      // console.log('DATA => ', response.data)
-      setLoading(false)
+      dispatch(WeatherActions.setWeatherData(response.data)) 
       dispatch(ControlActions.setLoading(false))
-    }).catch(error => {
-      // console.log('Erro busca de weather ', error) 
-      setLoading(false)
+    }).catch(error => { 
       dispatch(ControlActions.setLoading(false))
     })
   }, [control.loadingInformation])
  
   const styles = useStyleSheet(themedStyles); 
-   
-  const weatherData = useAppSelector(state => state.weatherReducer.weatherData);
     
-  if (control.loadingInformation) {
+  const LoadingData = () => {
     return (
       <Layout style={[styles.maxFlex, styles.centerContent]}>
+        <Text style = {{marginBottom: 32}}>Estamos atualizando os dados</Text>
         <Spinner/>
       </Layout>
     );
   }
-   
-
-  // console.log('Clima', weatherData)
-  
-
-  // const renderItem = ({ item }: ListRenderItemInfo<Breed>) => {
-
-  //   // const shoppingCartItem = shoppingCartData(item.id)
-      
-  //   return(
-  //     <TouchableNativeFeedback onPress={() => NavigationService.navigate(RouteNames.ItemDetail, item)}>
-  //       <View style={styles.item}>
-  //         <View style={styles.temperamentWrapper}>
-  //           <Avatar size="giant" shape='rounded' style = {{width: 128, height: 128}} source={{ uri: item.image.url }} />
-  //           <Text category="h6" style={styles.temperament}>
-  //             {item.name}
-  //           </Text>
-  //         </View>
-  //         <View style = {{width:'100%'}}>
-  //           {shoppingCartItem ? 
-  //             <Button status = {'danger'} style = {styles.btn} onPress={() => dispatch(ShoppingCartActions.removeProductFromCart(item.id))}>Remover</Button>:
-  //             <Button status = {'success'} style = {styles.btn} onPress={() => dispatch(ShoppingCartActions.addProductToCart(item.id))}>Adicionar</Button> 
-  //           }
-  //         </View>
-  //       </View>
-  //     </TouchableNativeFeedback>
-  //   );
-  // }
-
+    
   const bg_image = require('../../../assets/images/gradient_sky.jpg')
 
   return (
     <Layout style={styles.maxFlex}>  
       <TopNavigationHeader title = {control.cidade}/> 
-      <ImageBackground source = {bg_image} style = {{height: '100%', width: '100%'}}>
-        <ScrollView style = {{flex: 1, padding: 16}}> 
-          <IndicadorTemperatura/>
-          <Previsao/>
-          <Detalhes/>
-        </ScrollView>
-      </ImageBackground> 
+      {control.loadingInformation? 
+        <LoadingData/>:
+        <ImageBackground source = {bg_image} style = {{height: '100%', width: '100%'}}>
+          <ScrollView style = {{flex: 1, padding: 16}}> 
+            <IndicadorTemperatura/>
+            <Previsao/>
+            <Detalhes/>
+          </ScrollView>
+        </ImageBackground> 
+      }
     </Layout>
   );
 };
