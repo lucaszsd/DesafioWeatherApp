@@ -24,15 +24,6 @@
           }
         }
       }
-    },
-    "TopNavigation": {
-      "appearances": {
-        "default": {
-          "mapping": {
-            "backgroundColor": "background-basic-color-2"
-          }
-        }
-      }
-    }
+    } 
   }
 }

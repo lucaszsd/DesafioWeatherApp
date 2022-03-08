@@ -147,7 +147,7 @@ const StoreItems = () => {
 
   return (
     <Layout style={styles.maxFlex}>  
-      <TopNavigationHeader title = {'London'}/> 
+      <TopNavigationHeader title = {'Recife'}/> 
       <ImageBackground source = {bg_image} style = {{height: '100%', width: '100%'}}>
         <ScrollView style = {{flex: 1, padding: 16}}> 
           <IndicadorTemperatura/>

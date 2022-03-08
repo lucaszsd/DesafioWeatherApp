@@ -35,8 +35,7 @@ const BaseApp = (props: ThemedComponentProps) => (
         backgroundColor={theme['color-primary-500']}
         networkActivityIndicatorVisible
         showHideTransition="fade"
-      />
-
+      /> 
       <NavigationStack />
     </SafeAreaView>
   </>
