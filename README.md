@@ -2,6 +2,8 @@
 
 O app consiste de um app de previsão de tempo, ao carregar, ele busca de APIS dados metereológicos sobre a cidade selecionada. Sendo que nessa primeira versão, é possivel selecionar outras cidades no botão no canto superior esquerdo. 
 
+É possivel atualizar os dados carregados clicando num botão, no canto superior direito
+
 P.S.: A escolha da API utilizada foi a recomendada no desafio, mas usando a fonte da RapidAPi, pois a minha chave diretamente do site da API original estava dando problema
  
 ## Rodar o projeto
