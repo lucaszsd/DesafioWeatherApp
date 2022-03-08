@@ -15,6 +15,7 @@ interface DetailItem {
   unidade: string
 }
 
+//Mostram outros detalhes do clima
 const Detalhes = () => {
   
   const weatherData:WeatherDataInterface = useAppSelector(state => state.weatherReducer.weatherData);

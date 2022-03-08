@@ -49,7 +49,7 @@ const UpdateIcon = (props: IconProps) => {
     const control = useAppSelector(state => state.controlReducer)
     return(
         <View>
-            <Icon {...props} name="loader-outline" />
+            <Icon {...props} name="refresh-outline" />
             {/* Só mostra o indicador caso tenha items no carrinho */}
             {cart.length > 0 && <View style = {styles.cartAlert}></View>}
         </View>
@@ -69,22 +69,13 @@ const UpdateIcon = (props: IconProps) => {
 const TopNavigationHeader = (props: TopNavigationHeaderProps) => { 
 
     const dispatch = useDispatch()
-
-
+ 
     const [menuVisible, setMenuVisible] = React.useState(false);
-
-    const control = useAppSelector(state => state.controlReducer)
-
+  
     const toggleMenu = () => {
         setMenuVisible(!menuVisible);
     };
-
-    const titulo = () =>{
-        return(
-            <Text>{control.cidade}</Text>
-        )
-    }
-
+ 
     const renderBackAction = () => (
         <TopNavigationAction icon={BackIcon} onPress={toggleMenu}/>
     );
