@@ -35,7 +35,7 @@ const Detalhes = () => {
   
     const weatherData = useAppSelector(state => state.weatherReducer.weatherData);
     
-    console.log(weatherData)
+    // console.log(weatherData)
 
   const data = [
     {title: 'Sensação Termica', detailData: weatherData.main.feels_like, unidade: 'ºC'},
@@ -46,7 +46,7 @@ const Detalhes = () => {
   ]
 
   const renderItem = ({item}: DetailItem) => {
-    console.log(item)
+    // console.log(item)
     return(
       <View style={{padding: 16, width: '50%'}}>
         <Text>

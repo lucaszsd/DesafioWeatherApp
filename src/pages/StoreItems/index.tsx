@@ -75,38 +75,23 @@ const StoreItems = () => {
   const control = useAppSelector(state => state.controlReducer)
 
   useEffect(() => {
-    getWeatherData().then(response =>{ 
+    getWeatherData(control.cidade).then(response =>{ 
       dispatch(WeatherActions.setWeatherData(response.data))
       // dispatch(WeatherActions.setcityData(response.data.city));
-      console.log('DATA => ', response.data)
+      // console.log('DATA => ', response.data)
       setLoading(false)
       dispatch(ControlActions.setLoading(false))
     }).catch(error => {
-      console.log('Erro busca de weather ', error) 
+      // console.log('Erro busca de weather ', error) 
       setLoading(false)
       dispatch(ControlActions.setLoading(false))
     })
   }, [control.loadingInformation])
  
-  const styles = useStyleSheet(themedStyles);
-  const { data = [], isFetching } = useFetchBreedsQuery(20);
-  
-  const cart = useAppSelector(state => state.shoppingCartReducer.shoppingCart); 
-
+  const styles = useStyleSheet(themedStyles); 
+   
   const weatherData = useAppSelector(state => state.weatherReducer.weatherData);
-  const cityData = useAppSelector(state => state.weatherReducer.cityData);
-
-
-  // console.log(control)
-  // console.log(weatherData)
-
-  // dispatch(ShoppingCartActions.setProductList(data))
-
-  // const shoppingCartData = (id: string) => {  
-  //   let shoppingCartItemData:Product = cart.filter(item => item.id == id)[0]
-  //   return shoppingCartItemData;
-  // }
-
+    
   if (control.loadingInformation) {
     return (
       <Layout style={[styles.maxFlex, styles.centerContent]}>
@@ -116,7 +101,7 @@ const StoreItems = () => {
   }
    
 
-  console.log('Clima', weatherData)
+  // console.log('Clima', weatherData)
   
 
   // const renderItem = ({ item }: ListRenderItemInfo<Breed>) => {
@@ -147,7 +132,7 @@ const StoreItems = () => {
 
   return (
     <Layout style={styles.maxFlex}>  
-      <TopNavigationHeader title = {'Recife'}/> 
+      <TopNavigationHeader title = {control.cidade}/> 
       <ImageBackground source = {bg_image} style = {{height: '100%', width: '100%'}}>
         <ScrollView style = {{flex: 1, padding: 16}}> 
           <IndicadorTemperatura/>

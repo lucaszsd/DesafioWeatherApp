@@ -1,44 +1,24 @@
 //Exportações Externas
-import React, { useEffect, useState } from 'react';
-import {
-  Button, 
-  Layout,
-  Text,
-  StyleService,
-  useStyleSheet, 
-  Avatar,
-  Spinner,
-} from '@ui-kitten/components';
-import { useDispatch } from 'react-redux'; 
-import TopNavigationHeader from 'components/TopNavigationHeader';
-import { FlatList, ListRenderItemInfo, TouchableNativeFeedback, TouchableNativeFeedbackBase, View } from 'react-native'; 
+import React from 'react';
+import { View } from 'react-native'; 
+import { Text, StyleService, } from '@ui-kitten/components'; 
 
 //Importações Interanas
 import { useAppSelector } from 'hooks/store';
-import { RouteNames } from 'routes/nav_types'; 
-import { Breed, Product } from 'types/interfaces';
-import NavigationService from 'routes/NavigationService';
-import { useFetchBreedsQuery } from 'features/dogs/dogs_api_slice';
-import * as ShoppingCartActions from 'features/shoppingCart/shoppingCartSlice';
-import * as WeatherActions from 'features/Weather/weatherSlice';
-import getWeatherData from 'api/getForeCastData';
-import { setcityData, setWeatherData } from 'features/Weather/weatherSlice';
  
   
 const IndicadorTemperatura = () => {
   
-    const weatherData = useAppSelector(state => state.weatherReducer.weatherData);
-    
-    console.log(weatherData)
-
+  const weatherData = useAppSelector(state => state.weatherReducer.weatherData);
+   
   return (  
-      <View style = {{padding: 48, width: '100%', justifyContent: 'center', alignItems: 'center'}}>
-        <View style = {{flexDirection: 'row'}}>
-            <Text category={'h1'} style = {{fontSize: 80}}>{weatherData.main.temp}</Text>
-            <Text category={'h4'} style = {{marginTop: 40}}>ºC</Text>
-        </View>
-        <Text category={'h5'}>{weatherData.weather[0].description}</Text>
-      </View> 
+    <View style = {{padding: 48, width: '100%', justifyContent: 'center', alignItems: 'center'}}>
+      <View style = {{flexDirection: 'row'}}>
+          <Text category={'h1'} style = {{fontSize: 80}}>{weatherData.main.temp}</Text>
+          <Text category={'h4'} style = {{marginTop: 40}}>ºC</Text>
+      </View>
+      <Text category={'h5'}>{weatherData.weather[0].description}</Text>
+    </View> 
   );
 };
 

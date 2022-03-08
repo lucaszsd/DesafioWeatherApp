@@ -2,10 +2,10 @@
 import { api } from './'; 
 import config from 'utils/config'; 
 
-const getWeatherData = async () => {
+const getWeatherData = async (cidade) => {
   const options = { 
     params: {
-        q: 'recife,br',
+        q: `${cidade},br`,
         lat: '0',
         lon: '0',
         callback: '',

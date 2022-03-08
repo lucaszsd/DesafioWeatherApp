@@ -5,7 +5,10 @@ import {
     useStyleSheet,
     TopNavigation,
     IconProps,
-    TopNavigationAction, 
+    TopNavigationAction,
+    OverflowMenu,
+    MenuItem,
+    Text, 
   } from '@ui-kitten/components';
   import { View } from 'react-native';
   import React, { ReactText } from 'react';
@@ -25,7 +28,17 @@ const themedStyles = StyleService.create({
     cartAlert: { height: 8, width: 8, borderRadius: 8, backgroundColor: 'red', position: 'absolute', top: 2, right: 0 }, 
 });
 
-const BackIcon = (props: IconProps) => <Icon {...props} name="arrow-back" />;
+const BackIcon = (props: IconProps) => <Icon {...props} name="plus-outline" />;
+
+
+const cidades = [
+    'Recife',
+    'São Paulo',
+    'Rio de Janeiro',
+    'Salvador',
+    'Porto Alegre'
+]
+
  
 const UpdateIcon = (props: IconProps) => {
 
@@ -43,10 +56,7 @@ const UpdateIcon = (props: IconProps) => {
         )
     };
  
-    const BackAction = () => (
-        <TopNavigationAction icon={BackIcon} onPress={() => NavigationService.goBack()}/> 
-    );
-
+   
     const UpdateAction = () => {
         const dispatch = useDispatch()
         
@@ -57,13 +67,50 @@ const UpdateIcon = (props: IconProps) => {
     };
 
 const TopNavigationHeader = (props: TopNavigationHeaderProps) => { 
+
+    const dispatch = useDispatch()
+
+
+    const [menuVisible, setMenuVisible] = React.useState(false);
+
+    const control = useAppSelector(state => state.controlReducer)
+
+    const toggleMenu = () => {
+        setMenuVisible(!menuVisible);
+    };
+
+    const titulo = () =>{
+        return(
+            <Text>{control.cidade}</Text>
+        )
+    }
+
+    const renderBackAction = () => (
+        <TopNavigationAction icon={BackIcon} onPress={toggleMenu}/>
+    );
+ 
+    const renderLeftActions = () => (
+        <React.Fragment> 
+          <OverflowMenu
+            anchor={renderBackAction}
+            visible={menuVisible}
+            onBackdropPress={toggleMenu}>
+                {
+                    cidades.map(( item, index) => (
+                        <MenuItem key = {index} title = {item} onPress = {() => dispatch(ControlActions.setCidade(item))}/>
+                    ))
+                } 
+          </OverflowMenu> 
+        </React.Fragment>
+      );
+
     return(
         <TopNavigation
-        title={props.title}
-        alignment="center"
-        accessoryLeft={props.backButton ? BackAction : undefined} 
-        accessoryRight={UpdateAction} 
-      /> 
+            title={props.title}
+            alignment="center"
+            accessoryLeft={renderLeftActions} 
+            accessoryRight={UpdateAction} 
+        /> 
     ) 
 }
 

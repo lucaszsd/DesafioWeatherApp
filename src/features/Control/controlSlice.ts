@@ -14,7 +14,9 @@ const controlSlice = createSlice({
   initialState,
   reducers: { 
     setCidade(state, action: PayloadAction<string>){
-      state.cidade = action.payload; 
+      state.cidade = action.payload;
+      state.loadingInformation = true
+      console.log('\n\n\n\n\n\n\nCidade',state.cidade)
     }, 
     setLoading(state, action: PayloadAction<boolean>){
       state.loadingInformation = action.payload; 
