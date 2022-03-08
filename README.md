@@ -7,7 +7,7 @@ P.S.: A escolha da API foi pela comodidade de já estar disponivel e sem limite 
 ## Rodar o projeto
 
 Para rodar o projeto, o procedimento é o padrão: 
-- Clone the project - `git clone https://github.com/lucaszsd/DesafioTon`.  
+- Clone the project - `git clone https://github.com/lucaszsd/WeatherApp`.  
 - Instalar as depencências - `yarn install`
 - Rode com `yarn android`
  
@@ -31,12 +31,12 @@ Desenvolvi usando emulador para Android, não tive como testar no iOS, então po
 
 ## Capturas de Tela
 
-![Capturas de tela no Drive](https://github.com/lucaszsd/DesafioTon/blob/main/screenshots/Screenshot_1641848642.png)
-![Capturas de tela no Drive](https://github.com/lucaszsd/DesafioTon/blob/main/screenshots/Screenshot_1641848647.png)
-![Capturas de tela no Drive](https://github.com/lucaszsd/DesafioTon/blob/main/screenshots/Screenshot_1641848661.png)
-![Capturas de tela no Drive](https://github.com/lucaszsd/DesafioTon/blob/main/screenshots/Screenshot_1641848667.png)
-![Capturas de tela no Drive](https://github.com/lucaszsd/DesafioTon/blob/main/screenshots/Screenshot_1641848672.png)
-![Capturas de tela no Drive](https://github.com/lucaszsd/DesafioTon/blob/main/screenshots/Screenshot_1641849758.png)
+![Capturas de tela no Drive](https://github.com/lucaszsd/WeatherApp/blob/main/screenshots/Screenshot_1641848642.png)
+![Capturas de tela no Drive](https://github.com/lucaszsd/WeatherApp/blob/main/screenshots/Screenshot_1641848647.png)
+![Capturas de tela no Drive](https://github.com/lucaszsd/WeatherApp/blob/main/screenshots/Screenshot_1641848661.png)
+![Capturas de tela no Drive](https://github.com/lucaszsd/WeatherApp/blob/main/screenshots/Screenshot_1641848667.png)
+![Capturas de tela no Drive](https://github.com/lucaszsd/WeatherApp/blob/main/screenshots/Screenshot_1641848672.png)
+![Capturas de tela no Drive](https://github.com/lucaszsd/WeatherApp/blob/main/screenshots/Screenshot_1641849758.png)
  
  
 

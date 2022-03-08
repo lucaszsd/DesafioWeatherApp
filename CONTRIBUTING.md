@@ -6,7 +6,7 @@ Thank you for choosing React Native Seed and helping us be better at what we do.
 
 Setting up your environment is pretty straight forward:
 
-- Follow all the steps under [Usage](https://github.com/rashtay/DesafioTon#usage)
+- Follow all the steps under [Usage](https://github.com/rashtay/WeatherApp#usage)
 - Learn the basics of **Git** and **GitHub** if you haven't already
 - Create a new feature/bug branch from the `develop` branch. For example, let's say you are working on the FAQ page. Then, create a branch named `feature/faq`. If it's a bug you are resolving on the page, it can be `bug/faq`
 - Work in the newly isolated branch
@@ -19,7 +19,7 @@ Setting up your environment is pretty straight forward:
 
 ### Resources and references
 
-- Refer to the [Tools and Libraries](https://github.com/rashtay/DesafioTon#tools-and-libraries) section
+- Refer to the [Tools and Libraries](https://github.com/rashtay/WeatherApp#tools-and-libraries) section
 - https://chris.beams.io/posts/git-commit/
 - https://www.perforce.com/blog/vcs/git-rebase-vs-merge-which-better
 - https://www.gitkraken.com/learn/git/tutorials/what-is-a-pull-request-in-git

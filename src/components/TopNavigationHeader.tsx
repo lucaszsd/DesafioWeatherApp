@@ -7,16 +7,13 @@ import {
     IconProps,
     TopNavigationAction,
     OverflowMenu,
-    MenuItem,
-    Text, 
+    MenuItem, 
   } from '@ui-kitten/components';
   import { View } from 'react-native';
   import React, { ReactText } from 'react';
   import { useAppSelector } from 'hooks/store';
 import * as ControlActions from 'features/Control/controlSlice'
-//Importações Internas
-import { RouteNames } from '../routes/nav_types';
-import NavigationService from 'routes/NavigationService';
+//Importações Internas 
 import { useDispatch } from 'react-redux';
 
 interface TopNavigationHeaderProps {
