@@ -1,8 +1,8 @@
-# Dog Shop Desafio Ton
+# Weather App - Desafio Builders
 
-O app consiste de uma loja, os itens na loja são cachorros de diversas raças. Ao clicar sobre o item na loja, pode-se ver detalhes sobre o animal. Ao clicar adicionar o item é adicionado no carrinho onde de lá ou a partir da loja pode ser retirado. 
+O app consiste de um app de previsão de tempo, ao carregar, ele busca de APIS dados metereológicos sobre a cidade selecionada. Sendo que nessa primeira versão, é possivel selecionar outras cidades no botão no canto superior esquerdo. 
 
-P.S.: A escolha da API foi pela comodidade de já estar disponivel e sem limite de uso para desenvolvimento;
+P.S.: A escolha da API utilizada foi a recomendada no desafio, mas usando a fonte da RapidAPi, pois a minha chave diretamente do site da API original estava dando problema
  
 ## Rodar o projeto
 
@@ -15,9 +15,9 @@ Para rodar o projeto, o procedimento é o padrão:
  
 ## Design
 
-Para a consistencia do design, mantive usando a biblioteca de componentes [UI Kitten](https://akveo.github.io/react-native-ui-kitten/) que segue o Design System [Eva Design](https://eva.design/). Sobre o layout, foi mantido o mais simples, de acordo com o wireframe, adicionando somente uma tela extra.
+Para a consistencia do design, mantive usando a biblioteca de componentes [UI Kitten](https://akveo.github.io/react-native-ui-kitten/) que segue o Design System [Eva Design](https://eva.design/). Sobre o layout, foi mantido o mais simples 
 
-Sobre possiveis melhorias adicionaria animações nas listagens, ao remover os itens do carrinho e também a opção de definir a quantidade de cada item. Outra melhoria que costumo utilizar é invés de "spinners" ao carregar, usar [Shimmer Placeholder](https://github.com/tomzaku/react-native-shimmer-placeholder), que mostram já um preview da interface a ser carregada.
+Sobre possiveis melhorias adicionaria animações, mais detalhes de clima e uma lista de cidades selecionadas pelo usuário.. Outra melhoria que costumo utilizar é invés de "spinners" ao carregar, usar [Shimmer Placeholder](https://github.com/tomzaku/react-native-shimmer-placeholder), que mostram já um preview da interface a ser carregada.
    
 
 
@@ -25,7 +25,7 @@ Sobre possiveis melhorias adicionaria animações nas listagens, ao remover os i
 
 O projeto foi criado baseado no seguinte [boilerplate](https://github.com/shettayyy/React_Native_Seed)
 
-Para o gerenciamento das ações dentro do app estou usando redux através do [Redux Toolkit](https://redux-toolkit.js.org/). Uma melhoria imediata seria persistir, que por agora, não está sendo feito. A cada vez que é carregado o app novamente, o carrinho está sendo perdido.
+Para o gerenciamento das ações dentro do app estou usando redux através do [Redux Toolkit](https://redux-toolkit.js.org/). Uma melhoria imediata seria persistir os dados, que por agora, não está sendo feito. A cada vez que é carregado o app novamente, os dados anteriores estao sendo perdidos
 
 Desenvolvi usando emulador para Android, não tive como testar no iOS, então pode ter alguma incompatibilidade a ser resolvida para iPhone, como exemplo o ajuste do \
 
