@@ -13,7 +13,7 @@ Para rodar o projeto, o procedimento é o padrão:
 - Instalar as depencências - `yarn install`
 - Rode com `yarn android`
  
- Também adicionei o APK para instalar no Android na seguinte pasta do [Google Drive](https://drive.google.com/drive/u/6/folders/1o5Bb02snnv5YAleNEc3n0sIMB8DfAEc9). Para instalar basta aceitar instalar aplicativos de fora da Google Play.
+ Também adicionei o APK para instalar no Android no repositorio [Nesse link](https://github.com/lucaszsd/DesafioWeatherApp/blob/main/app-release.apk). Para instalar basta aceitar instalar aplicativos de fora da Google Play.
  
 ## Design
 
@@ -35,12 +35,8 @@ Desenvolvi usando emulador para Android, não tive como testar no iOS, então po
 
 ## Capturas de Tela
 
-![Capturas de tela no Drive](https://github.com/lucaszsd/WeatherApp/blob/main/screenshots/Screenshot_1641848642.png)
-![Capturas de tela no Drive](https://github.com/lucaszsd/WeatherApp/blob/main/screenshots/Screenshot_1641848647.png)
-![Capturas de tela no Drive](https://github.com/lucaszsd/WeatherApp/blob/main/screenshots/Screenshot_1641848661.png)
-![Capturas de tela no Drive](https://github.com/lucaszsd/WeatherApp/blob/main/screenshots/Screenshot_1641848667.png)
-![Capturas de tela no Drive](https://github.com/lucaszsd/WeatherApp/blob/main/screenshots/Screenshot_1641848672.png)
-![Capturas de tela no Drive](https://github.com/lucaszsd/WeatherApp/blob/main/screenshots/Screenshot_1641849758.png)
+![Captura de tela](https://github.com/lucaszsd/DesafioWeatherApp/blob/main/screenshots/Screenshot_1646754144.png)
+ 
  
  
 
