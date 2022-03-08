@@ -5,6 +5,7 @@ import { Text, StyleService, } from '@ui-kitten/components';
 
 //Importações Interanas
 import { useAppSelector } from 'hooks/store';
+import formatarTemp from 'utils/formatarTemp';
   
 const Previsao = () => {
   
@@ -13,7 +14,7 @@ const Previsao = () => {
   return (  
       <View style = {{flexDirection: 'row', justifyContent: 'space-between', width: '100%', marginTop: 16, paddingHorizontal: 16, backgroundColor: 'rgba(255, 255, 255, 0.0)', alignItems: 'center', borderRadius: 16}}> 
         <Text category={'h6'}>Hoje</Text>
-        <Text category={'h6'}>{`${weatherData.main.temp_min}/${weatherData.main.temp_max}`}</Text>
+        <Text category={'h6'}>{`${formatarTemp(weatherData.main.temp_min)}/${formatarTemp(weatherData.main.temp_max)}`}</Text>
       </View> 
   );
 };

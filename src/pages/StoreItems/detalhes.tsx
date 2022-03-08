@@ -23,6 +23,7 @@ import * as ShoppingCartActions from 'features/shoppingCart/shoppingCartSlice';
 import * as WeatherActions from 'features/Weather/weatherSlice';
 import getWeatherData from 'api/getForeCastData';
 import { setcityData, setWeatherData } from 'features/Weather/weatherSlice';
+import formatarTemp from 'utils/formatarTemp';
  
   
 interface DetailItem {
@@ -38,7 +39,7 @@ const Detalhes = () => {
     // console.log(weatherData)
 
   const data = [
-    {title: 'Sensação Termica', detailData: weatherData.main.feels_like, unidade: 'ºC'},
+    {title: 'Sensação Termica', detailData: formatarTemp(weatherData.main.feels_like), unidade: 'ºC'},
     {title: 'Umidade', detailData: weatherData.main.humidity, unidade: '%'}, 
     {title: 'Pressão', detailData: weatherData.main.pressure, unidade: 'mbar'},
     {title: 'Vel. do vento', detailData: weatherData.wind.speed, unidade: 'km/h'},
