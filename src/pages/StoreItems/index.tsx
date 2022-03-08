@@ -11,7 +11,7 @@ import {
 } from '@ui-kitten/components';
 import { useDispatch } from 'react-redux'; 
 import TopNavigationHeader from 'components/TopNavigationHeader';
-import { FlatList, ListRenderItemInfo, TouchableNativeFeedback, TouchableNativeFeedbackBase, View } from 'react-native'; 
+import { FlatList, ImageBackground, ListRenderItemInfo, TouchableNativeFeedback, TouchableNativeFeedbackBase, View } from 'react-native'; 
 
 //Importações Interanas
 import { useAppSelector } from 'hooks/store';
@@ -137,21 +137,18 @@ const StoreItems = () => {
   //   );
   // }
 
+  const bg_image = require('../../../assets/images/gradient_sky.jpg')
+
   return (
     <Layout style={styles.maxFlex}>  
       <TopNavigationHeader title = {'London'}/> 
-      <ScrollView style = {{flex: 1, backgroundColor: 'red', padding: 16}}> 
-        <IndicadorTemperatura/>
-        <Previsao/>
-        <Detalhes/>
-      </ScrollView>
-      {/* <FlatList
-        style={styles.maxFlex}
-        numColumns={2}
-        contentContainerStyle={styles.contentContainer}
-        data={data}
-        renderItem={renderItem}
-      />  */}
+      <ImageBackground source = {bg_image} style = {{height: '100%', width: '100%'}}>
+        <ScrollView style = {{flex: 1, padding: 16}}> 
+          <IndicadorTemperatura/>
+          <Previsao/>
+          <Detalhes/>
+        </ScrollView>
+      </ImageBackground> 
     </Layout>
   );
 };
