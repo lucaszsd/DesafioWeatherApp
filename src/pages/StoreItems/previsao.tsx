@@ -6,11 +6,12 @@ import { Text, StyleService, } from '@ui-kitten/components';
 //Importações Interanas
 import { useAppSelector } from 'hooks/store';
 import formatarTemp from 'utils/formatarTemp';
+import { WeatherDataInterface } from 'types/interfaces';
   
 const Previsao = () => {
   
-  const weatherData = useAppSelector(state => state.weatherReducer.weatherData);
-      
+  const weatherData:WeatherDataInterface = useAppSelector(state => state.weatherReducer.weatherData);
+  
   return (  
       <View style = {{flexDirection: 'row', justifyContent: 'space-between', width: '100%', marginTop: 16, paddingHorizontal: 16, backgroundColor: 'rgba(255, 255, 255, 0.0)', alignItems: 'center', borderRadius: 16}}> 
         <Text category={'h6'}>Hoje</Text>

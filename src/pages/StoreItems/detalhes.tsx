@@ -36,7 +36,7 @@ const Detalhes = () => {
   
     const weatherData = useAppSelector(state => state.weatherReducer.weatherData);
     
-    // console.log(weatherData)
+    console.log('Weather', weatherData)
 
   const data = [
     {title: 'Sensação Termica', detailData: formatarTemp(weatherData.main.feels_like), unidade: 'ºC'},
