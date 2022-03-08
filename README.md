@@ -17,7 +17,9 @@ Para rodar o projeto, o procedimento é o padrão:
 
 Para a consistencia do design, mantive usando a biblioteca de componentes [UI Kitten](https://akveo.github.io/react-native-ui-kitten/) que segue o Design System [Eva Design](https://eva.design/). Sobre o layout, foi mantido o mais simples 
 
-Sobre possiveis melhorias adicionaria animações, mais detalhes de clima e uma lista de cidades selecionadas pelo usuário.. Outra melhoria que costumo utilizar é invés de "spinners" ao carregar, usar [Shimmer Placeholder](https://github.com/tomzaku/react-native-shimmer-placeholder), que mostram já um preview da interface a ser carregada.
+Sobre possiveis melhorias adicionaria animações, mais detalhes de clima e uma lista de cidades selecionadas pelo usuário.. Outra melhoria que costumo utilizar é invés de "spinners" ao carregar, usar [Shimmer Placeholder](https://github.com/tomzaku/react-native-shimmer-placeholder), que mostram já um preview da interface a ser carregada. 
+Também traduzir parte dos dados que vem em inglês, sobre a descrição do clima, não o traduzi pois não encontrei na documentação alguma referencia com as possiveis saidas. 
+Outra melhoria seria criar um fundo dinamico que muda de acordo com o horario/clima do dia. Exemplo um fundo escuro pela noite, e mais claro pelo dia, com imagens de nuvens quando nublado, ou mostrando o ceu limpo, quando o clima está também limpo.
    
 
 
@@ -27,7 +29,7 @@ O projeto foi criado baseado no seguinte [boilerplate](https://github.com/shetta
 
 Para o gerenciamento das ações dentro do app estou usando redux através do [Redux Toolkit](https://redux-toolkit.js.org/). Uma melhoria imediata seria persistir os dados, que por agora, não está sendo feito. A cada vez que é carregado o app novamente, os dados anteriores estao sendo perdidos
 
-Desenvolvi usando emulador para Android, não tive como testar no iOS, então pode ter alguma incompatibilidade a ser resolvida para iPhone, como exemplo o ajuste do \
+Desenvolvi usando emulador para Android, não tive como testar no iOS, então pode ter alguma incompatibilidade a ser resolvida para iPhone, como exemplo o ajuste do espaço do "notch"
 
 ## Capturas de Tela
 
