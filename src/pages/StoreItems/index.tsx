@@ -21,6 +21,7 @@ import NavigationService from 'routes/NavigationService';
 import { useFetchBreedsQuery } from 'features/dogs/dogs_api_slice';
 import * as ShoppingCartActions from 'features/shoppingCart/shoppingCartSlice';
 import * as WeatherActions from 'features/Weather/weatherSlice';
+import * as ControlActions from 'features/Control/controlSlice';
 import getForecastData from 'api/getForeCastData';
 import { setcityData, setWeatherData } from 'features/Weather/weatherSlice';
 import IndicadorTemperatura from './indicadorTemperatura';
@@ -71,18 +72,21 @@ const StoreItems = () => {
   const dispatch = useDispatch()
 
   const [loading, setLoading] = useState(true)
- 
+  const control = useAppSelector(state => state.controlReducer)
+
   useEffect(() => {
     getWeatherData().then(response =>{ 
       dispatch(WeatherActions.setWeatherData(response.data))
       // dispatch(WeatherActions.setcityData(response.data.city));
       console.log('DATA => ', response.data)
       setLoading(false)
+      dispatch(ControlActions.setLoading(false))
     }).catch(error => {
       console.log('Erro busca de weather ', error) 
       setLoading(false)
+      dispatch(ControlActions.setLoading(false))
     })
-  }, [])
+  }, [control.loadingInformation])
  
   const styles = useStyleSheet(themedStyles);
   const { data = [], isFetching } = useFetchBreedsQuery(20);
@@ -91,7 +95,9 @@ const StoreItems = () => {
 
   const weatherData = useAppSelector(state => state.weatherReducer.weatherData);
   const cityData = useAppSelector(state => state.weatherReducer.cityData);
- 
+
+
+  // console.log(control)
   // console.log(weatherData)
 
   // dispatch(ShoppingCartActions.setProductList(data))
@@ -101,7 +107,7 @@ const StoreItems = () => {
   //   return shoppingCartItemData;
   // }
 
-  if (loading) {
+  if (control.loadingInformation) {
     return (
       <Layout style={[styles.maxFlex, styles.centerContent]}>
         <Spinner/>

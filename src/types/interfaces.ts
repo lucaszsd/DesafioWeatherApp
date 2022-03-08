@@ -33,3 +33,8 @@ export interface WeatherReducerState {
   weatherData: object,
   cityData: object,
 }
+
+export interface ControlReducerState {
+  cidade: string,
+  loadingInformation: boolean,
+}

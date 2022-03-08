@@ -61,7 +61,7 @@ const Detalhes = () => {
   
 
   return (  
-      <View style = {{width: '100%', marginTop: 16, backgroundColor: 'rgba(255, 255, 255, 0.3)', justifyContent: 'center', alignItems: 'center', borderRadius: 16}}> 
+      <View style = {{width: '100%', marginTop: 16, backgroundColor: 'rgba(255, 255, 255, 0.1)', justifyContent: 'center', alignItems: 'center', borderRadius: 16}}> 
         <FlatList
           style={{padding: 16}}
           contentContainerStyle={{width: '100%',}}

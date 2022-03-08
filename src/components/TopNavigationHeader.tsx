@@ -10,10 +10,11 @@ import {
   import { View } from 'react-native';
   import React, { ReactText } from 'react';
   import { useAppSelector } from 'hooks/store';
-
+import * as ControlActions from 'features/Control/controlSlice'
 //Importações Internas
 import { RouteNames } from '../routes/nav_types';
 import NavigationService from 'routes/NavigationService';
+import { useDispatch } from 'react-redux';
 
 interface TopNavigationHeaderProps {
     title: ReactText;
@@ -28,9 +29,11 @@ const BackIcon = (props: IconProps) => <Icon {...props} name="arrow-back" />;
  
 const UpdateIcon = (props: IconProps) => {
 
+    
+
     const styles = useStyleSheet(themedStyles); 
     const cart = useAppSelector(state => state.shoppingCartReducer.shoppingCart); 
-
+    const control = useAppSelector(state => state.controlReducer)
     return(
         <View>
             <Icon {...props} name="loader-outline" />
@@ -40,13 +43,18 @@ const UpdateIcon = (props: IconProps) => {
         )
     };
  
-const BackAction = () => (
-    <TopNavigationAction icon={BackIcon} onPress={() => NavigationService.goBack()}/> 
-);
+    const BackAction = () => (
+        <TopNavigationAction icon={BackIcon} onPress={() => NavigationService.goBack()}/> 
+    );
 
-const UpdateAction = () => (
-    <TopNavigationAction icon={UpdateIcon} onPress={() => NavigationService.navigate(RouteNames.ShoppingCart)} /> 
-);
+    const UpdateAction = () => {
+        const dispatch = useDispatch()
+        
+        return(
+            <TopNavigationAction icon={UpdateIcon} onPress={() => dispatch(ControlActions.setLoading(true))} /> 
+        )
+        
+    };
 
 const TopNavigationHeader = (props: TopNavigationHeaderProps) => { 
     return(
