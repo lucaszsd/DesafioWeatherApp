@@ -5,14 +5,14 @@ import config from 'utils/config';
 const getWeatherData = async () => {
   const options = { 
     params: {
-        q: 'London,uk',
+        q: 'recife,br',
         lat: '0',
         lon: '0',
-        callback: 'test',
+        callback: '',
         id: '2172797',
         lang: 'null',
-        units: 'imperial',
-        mode: 'xml'
+        units: 'metric',
+        mode: 'json'
     },
     headers: {
         'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com',

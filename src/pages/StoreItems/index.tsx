@@ -21,8 +21,12 @@ import NavigationService from 'routes/NavigationService';
 import { useFetchBreedsQuery } from 'features/dogs/dogs_api_slice';
 import * as ShoppingCartActions from 'features/shoppingCart/shoppingCartSlice';
 import * as WeatherActions from 'features/Weather/weatherSlice';
-import getWeatherData from 'api/getForeCastData';
+import getForecastData from 'api/getForeCastData';
 import { setcityData, setWeatherData } from 'features/Weather/weatherSlice';
+import IndicadorTemperatura from './indicadorTemperatura';
+import getWeatherData from 'api/getWeatherData';
+import { ScrollView } from 'react-native-gesture-handler';
+import Detalhes from './detalhes';
 
 const themedStyles = StyleService.create({
   btn: { margin: 16 }, 
@@ -69,8 +73,9 @@ const StoreItems = () => {
  
   useEffect(() => {
     getWeatherData().then(response =>{ 
-      dispatch(WeatherActions.setWeatherData(response.data.list))
-      dispatch(WeatherActions.setcityData(response.data.city));
+      dispatch(WeatherActions.setWeatherData(response.data))
+      // dispatch(WeatherActions.setcityData(response.data.city));
+      console.log('DATA => ', response.data)
       setLoading(false)
     }).catch(error => {
       console.log('Erro busca de weather ', error) 
@@ -86,6 +91,7 @@ const StoreItems = () => {
   const weatherData = useAppSelector(state => state.weatherReducer.weatherData);
   const cityData = useAppSelector(state => state.weatherReducer.cityData);
  
+  // console.log(weatherData)
 
   // dispatch(ShoppingCartActions.setProductList(data))
 
@@ -102,6 +108,8 @@ const StoreItems = () => {
     );
   }
    
+
+  console.log('Clima', weatherData)
   
 
   // const renderItem = ({ item }: ListRenderItemInfo<Breed>) => {
@@ -131,6 +139,11 @@ const StoreItems = () => {
   return (
     <Layout style={styles.maxFlex}>  
       <TopNavigationHeader title = {'London'}/> 
+      <ScrollView style = {{flex: 1, backgroundColor: 'red', padding: 16}}>
+
+        <IndicadorTemperatura/>
+        <Detalhes/>
+      </ScrollView>
       {/* <FlatList
         style={styles.maxFlex}
         numColumns={2}

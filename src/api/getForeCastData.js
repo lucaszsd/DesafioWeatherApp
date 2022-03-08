@@ -2,7 +2,7 @@
 import { api } from './'; 
 import config from 'utils/config'; 
 
-const getWeatherData = async () => {
+const getForecastData = async () => {
   const options = { 
     params: {
         q: 'London,uk',
@@ -23,4 +23,4 @@ const getWeatherData = async () => {
   return await api.get('/forecast', options)
 }
 
-export default getWeatherData;
+export default getForecastData;
