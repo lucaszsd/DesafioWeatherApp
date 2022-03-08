@@ -70,12 +70,12 @@ export interface WeatherDataInterface {
 
   timezone: number,
   visibility: number,
-  weather: [
+  weather: [{
     description: string, 
     icon: string, 
     id: number, 
     main: string,
-  ],
+  }],
   wind: {
     deg: number,
     speed: number,
