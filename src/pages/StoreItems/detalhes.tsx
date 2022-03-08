@@ -38,7 +38,7 @@ const Detalhes = () => {
     console.log(weatherData)
 
   const data = [
-    {title: 'Sensação', detailData: weatherData.main.feels_like, unidade: 'ºC'},
+    {title: 'Sensação Termica', detailData: weatherData.main.feels_like, unidade: 'ºC'},
     {title: 'Umidade', detailData: weatherData.main.humidity, unidade: '%'}, 
     {title: 'Pressão', detailData: weatherData.main.pressure, unidade: 'mbar'},
     {title: 'Vel. do vento', detailData: weatherData.wind.speed, unidade: 'km/h'},

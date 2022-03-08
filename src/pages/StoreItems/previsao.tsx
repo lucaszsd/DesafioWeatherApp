@@ -25,25 +25,51 @@ import getWeatherData from 'api/getForeCastData';
 import { setcityData, setWeatherData } from 'features/Weather/weatherSlice';
  
   
-const IndicadorTemperatura = () => {
+interface DetailItem {
+  title: string,
+  detailtData: string,
+  unidade: string
+}
+
+const Previsao = () => {
   
     const weatherData = useAppSelector(state => state.weatherReducer.weatherData);
     
     console.log(weatherData)
 
+  const data = [
+    {title: 'Sensação Termica', detailData: weatherData.main.feels_like, unidade: 'ºC'},
+    {title: 'Umidade', detailData: weatherData.main.humidity, unidade: '%'}, 
+    {title: 'Pressão', detailData: weatherData.main.pressure, unidade: 'mbar'},
+    {title: 'Vel. do vento', detailData: weatherData.wind.speed, unidade: 'km/h'},
+ 
+  ]
+
+  const renderItem = ({item}: DetailItem) => {
+    console.log(item)
+    return(
+      <View style={{padding: 16, width: '50%'}}>
+        <Text>
+          {item.title} 
+        </Text>
+        <Text category={'h6'}>
+          {item.detailData} {item.unidade}
+        </Text>
+      </View>
+    ) 
+    };
+  
+
   return (  
-      <View style = {{padding: 48, width: '100%', justifyContent: 'center', alignItems: 'center'}}>
-        <View style = {{flexDirection: 'row'}}>
-            <Text category={'h1'} style = {{fontSize: 80}}>{weatherData.main.temp}</Text>
-            <Text category={'h4'} style = {{marginTop: 40}}>ºC</Text>
-        </View>
-        <Text category={'h5'}>{weatherData.weather[0].description}</Text>
+      <View style = {{flexDirection: 'row', justifyContent: 'space-between', width: '100%', marginTop: 16, paddingHorizontal: 16, backgroundColor: 'rgba(255, 255, 255, 0.0)', alignItems: 'center', borderRadius: 16}}> 
+        <Text category={'h6'}>Hoje</Text>
+        <Text category={'h6'}>{`${weatherData.main.temp_min}/${weatherData.main.temp_max}`}</Text>
       </View> 
   );
 };
 
  
-export default IndicadorTemperatura;
+export default Previsao;
 
 
 const themedStyles = StyleService.create({

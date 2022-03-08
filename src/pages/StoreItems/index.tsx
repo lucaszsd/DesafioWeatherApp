@@ -27,6 +27,7 @@ import IndicadorTemperatura from './indicadorTemperatura';
 import getWeatherData from 'api/getWeatherData';
 import { ScrollView } from 'react-native-gesture-handler';
 import Detalhes from './detalhes';
+import Previsao from './previsao';
 
 const themedStyles = StyleService.create({
   btn: { margin: 16 }, 
@@ -139,9 +140,9 @@ const StoreItems = () => {
   return (
     <Layout style={styles.maxFlex}>  
       <TopNavigationHeader title = {'London'}/> 
-      <ScrollView style = {{flex: 1, backgroundColor: 'red', padding: 16}}>
-
+      <ScrollView style = {{flex: 1, backgroundColor: 'red', padding: 16}}> 
         <IndicadorTemperatura/>
+        <Previsao/>
         <Detalhes/>
       </ScrollView>
       {/* <FlatList
